@@ -1,6 +1,9 @@
-mod function;
-mod number;
-mod reference;
-mod result;
-mod value;
-mod vector;
+pub mod function;
+pub mod global;
+pub mod memory;
+pub mod number;
+pub mod reference;
+pub mod result;
+pub mod table;
+pub mod value;
+pub mod vector;
