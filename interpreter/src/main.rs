@@ -1,5 +1,6 @@
 use std::env;
 
+use engine::run;
 use parser::to_ast;
 
 use crate::tokens::tokenizer::{from_binary, from_text};
@@ -29,6 +30,7 @@ fn main() {
         }
     };
     let ast = to_ast(tokenized);
+    run(ast);
 }
 
 const PATH_FLAG: &str = "-p";
