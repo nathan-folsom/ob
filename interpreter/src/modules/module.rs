@@ -1,5 +1,7 @@
 use crate::{modules, types};
 
+/// Represents a wasm module
+/// https://webassembly.github.io/spec/core/syntax/modules.html
 pub struct Module {
     types: Vec<types::function::Function>,
     funcs: Vec<modules::function::Function>,
@@ -11,4 +13,10 @@ pub struct Module {
     start: Option<modules::function_index::FunctionIndex>,
     imports: Vec<modules::import::Import>,
     exports: Vec<modules::export::Export>,
+}
+
+impl Module {
+    pub fn instantiate() -> Self {
+        todo!()
+    }
 }
