@@ -1,3 +1,4 @@
+#[derive(Debug)]
 pub enum Token {
     Keyword(String),
     U32(u32),
