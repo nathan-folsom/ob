@@ -1,3 +1,5 @@
+use crate::tokens::number::{is_number, tokenize_number};
+
 use super::{
     token::Token,
     whitespace::{
@@ -14,6 +16,7 @@ pub fn from_text(input: String) -> Vec<Token> {
         let current = chars.get(i).unwrap();
         let next = chars.get(i + 1);
         if is_whitespace(current) {
+            i += 1;
             continue;
         }
         if open_block_comment(current, next) {
@@ -48,10 +51,18 @@ pub fn from_text(input: String) -> Vec<Token> {
             continue;
         } else if current == &'(' {
             output.push(Token::OpenParenthesis);
+            i += 1;
+            continue;
         } else if current == &')' {
             output.push(Token::CloseParenthesis);
+            i += 1;
+            continue;
+        } else if is_number(current) {
+            let tokenized = tokenize_number(&mut i, &chars);
+            output.push(tokenized);
+            continue;
         }
-        i += 1;
+        panic!("Failed to parse input text @ character {} ({})", i, current);
     }
     output
 }

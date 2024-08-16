@@ -1,12 +1,8 @@
-#[derive(Debug)]
+#[derive(Debug, PartialEq, Eq)]
 pub enum Token {
     Keyword(String),
-    U32(u32),
-    U64(u64),
-    I32(i32),
-    I64(i64),
-    F32(f32),
-    F64(f64),
+    Integer(String),
+    Float(String),
     String(String),
     Id(String),
     OpenParenthesis,
