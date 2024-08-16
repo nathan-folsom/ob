@@ -1,3 +1,3 @@
 # OB
 
-An attempt to write a WebAssembly in Rust... for fun?
+An attempt to write a WebAssembly interpreter in Rust... for fun?
